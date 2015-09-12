@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>hello</h1>
+欢迎你，<div id = "content"></div>
+</body>
+<script src="page1.js"></script>
+<script src="page2.js"></script>
+<script>
+    setTimeout(function () {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', '/ajax', true);
+        xhr.onreadystatechange = function () {
+            if (this.readyState == 4 & this.status == 200) {
+                document.querySelector('#content').innerHTML = this.responseText;
+            }
+        }
+        xhr.send();
+    }, 2000);
+</script>
+</html>
